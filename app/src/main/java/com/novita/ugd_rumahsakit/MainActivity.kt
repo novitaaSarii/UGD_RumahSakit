@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.os.bundleOf
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         password = findViewById(R.id.etPassword)
         email = findViewById(R.id.etEmail)
         tanggalLahir = findViewById(R.id.etTanggalLahir)
-        nomorTelepon = findViewById(R.id.etnomorTelepon)
+        nomorTelepon = findViewById(R.id.etNomorTelepon)
         btnRegister = findViewById(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             mBundle.putString("tanggalLahir", tanggalLahir.text.toString())
             mBundle.putString("nomorTelepon", nomorTelepon.text.toString())
             intent.putExtra("register", mBundle)
+            intent.putExtras(Bundle)
 
             startActivity(intent)
         }
