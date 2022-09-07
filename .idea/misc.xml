@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/drawable/ic_lock_24.xml" value="0.1" />
         <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/layout/fragment_home2.xml" value="0.1" />
+        <entry key="..\:/KULIAH/SEMESTER 5/Pemrpgraman Berbasis Platform/UGD_RumahSakit/app/src/main/res/layout/rv_konsultasi.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.311" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_chat_24.xml" value="0.311" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_home_24.xml" value="0.311" />
