@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.core.os.bundleOf
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         email = findViewById(R.id.etEmail)
         tanggalLahir = findViewById(R.id.etTanggalLahir)
         nomorTelepon = findViewById(R.id.etNomorTelepon)
-        btnRegister = findViewById(R.id.btnRegister)
+        btnRegister = findViewById(R.id.btn_create)
 
         btnRegister.setOnClickListener {
             val intent = Intent(this, NextActivity::class.java)
