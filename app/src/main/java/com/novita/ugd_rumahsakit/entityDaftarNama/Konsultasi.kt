@@ -10,7 +10,7 @@ class Konsultasi(var namaDokter: String, var spesialis: String, kontakDokter: St
             Konsultasi("Dr.Henri", "Umum", "45679", "0033"),
             Konsultasi("Dr.Tania", "Umum", "45671", "0044"),
             Konsultasi("Dr.Novi", "Anak", "12345", "0055"),
-
         )
     }
 }
+
