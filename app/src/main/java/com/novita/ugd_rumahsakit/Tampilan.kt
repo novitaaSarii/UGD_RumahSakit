@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class Tampilan : AppCompatActivity() {
-    private lateinit var inputUsername: TextInputEditText
-    private lateinit var inputpassword: TextInputEditText
+    private lateinit var inputUsername: TextInputLayout
+    private lateinit var inputpassword: TextInputLayout
     private lateinit var tampilanlayout: ConstraintLayout
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tampilan)
@@ -25,8 +28,8 @@ class Tampilan : AppCompatActivity() {
 
         btnLogin.setOnClickListener{
             var checkLogin = false
-            val username: String = inputUsername.getText().toString()
-            val password: String = inputpassword.getText().toString()
+            val username: String = inputUsername.editText.toString()
+            val password: String = inputpassword.editText.toString()
 
             if(username.isEmpty()){
                 inputUsername.setError("Username wrong")
@@ -45,9 +48,12 @@ class Tampilan : AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener{
+
             val moveMain = Intent(this@Tampilan, MainActivity::class.java)
             startActivity(moveMain)
         }
+
     }
+
 }
 

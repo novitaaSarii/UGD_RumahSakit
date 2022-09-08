@@ -17,13 +17,10 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Tampilan"
-            android:exported="false" />
-        <activity
-            android:name=".`NextActivity(CreateAccount)`"
-            android:exported="false" />
-        <activity
-            android:name=".`MainActivity(CreateAccount)`"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

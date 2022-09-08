@@ -3,112 +3,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tampilanLayout"
-    android:background="@color/blue"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tampilan">
+    tools:context=".Tampilan"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/userpass"
-        android:layout_width="410dp"
-        android:layout_height="650dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="247dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="49dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="247dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="373dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center"
+        android:text="Rumah Sakit Atma Jaya"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.082" />
 
-        <TextView
-            android:id="@+id/text1"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutUsername"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:textColorHint="@color/white"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.104"
+        app:startIconDrawable="@drawable/ic_person_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:background="@color/blue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Rumah Sakit Atma Jaya"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+            android:inputType="text"
+            android:textColorHint="#757575" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutUsername"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="348dp"
+        android:layout_height="80dp"
+        android:textColorHint="@color/white"
+        android:hint="Password"
+        app:errorEnabled="true"
+        app:helperText="Masukan passowrd anda"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutUsername"
+        app:layout_constraintVertical_bias="0.067"
+        app:startIconDrawable="@drawable/ic_lock_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:background="@color/blue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hint="Username"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/text1"
-            app:layout_constraintStart_toStartOf="@+id/text1"
-            app:layout_constraintTop_toBottomOf="@+id/text1"
-            app:startIconDrawable="@drawable/ic_person_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutPassword"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            app:errorEnabled="true"
-            app:helperText="Masukan passowrd anda"
-            app:layout_constraintEnd_toEndOf="@+id/inputLayoutUsername"
-            app:layout_constraintStart_toStartOf="@+id/inputLayoutUsername"
-            app:layout_constraintTop_toBottomOf="@+id/inputLayoutUsername"
-            app:startIconDrawable="@drawable/ic_lock_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/userpass"
-        app:layout_constraintStart_toStartOf="@+id/userpass"
-        app:layout_constraintTop_toTopOf="@+id/userpass"
-        app:layout_constraintBottom_toBottomOf="@+id/userpass"  >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword"
+        app:layout_constraintVertical_bias="0.225">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegister"
-            android:backgroundTint="@color/blue"
-            android:layout_marginRight="15dp"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/blue"
             android:text="Register" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
-            android:backgroundTint="@color/blue"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/blue"
             android:text="Login">
 
         </com.google.android.material.button.MaterialButton>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
