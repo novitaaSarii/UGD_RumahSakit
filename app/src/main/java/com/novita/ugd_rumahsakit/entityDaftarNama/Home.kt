@@ -1,6 +1,6 @@
 package com.novita.ugd_rumahsakit.entityDaftarNama
 
-class Home(var nama: String, var alamat: String, var noTelp: String, var namaDokter: String, var IDDokter: Int ) {
+class Home(var nama: String, var alamat: String, var noTelp: String, var namaDokter: String, var IDDokter: String ) {
     companion object {
         @JvmField
         var listOfHome = arrayOf(

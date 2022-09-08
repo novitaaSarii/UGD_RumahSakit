@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:text="Nama Dokter"
+        android:text="Nama Pasien"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -20,12 +20,11 @@
         android:id="@+id/tv_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Id Dokter - Spesialis - Contact - Id Dokter"
+        android:text="Alamat - NoTelepon - Nama Dokter - ID Dokter"
         app:layout_constraintBottom_toTopOf="@+id/tv_nama"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
-
+        app:layout_constraintVertical_bias="0.761"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.novita.ugd_rumahsakit.entityDaftarNama.Home
 import com.novita.ugd_rumahsakit.entityDaftarNama.Konsultasi
 
-class FragmentDosen : Fragment() {
-    //ini masih belum pasti sih coba di cek lagi ya//
+
+class FragmentKonsultasi : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,11 +22,11 @@ class FragmentDosen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(context)
-        val adapter: RVKonsultasi= RVKonsultasiAdapter(Konsultasi.listOfKonsultasi)
+        val adapter: RVKonsultasiAdapter = RVKonsultasiAdapter(Konsultasi.listOfKonsultasi)
 
-        val rvDosen: RecyclerView = view.findViewById(R.id.rv_konsultasi)
-        rvDosen.layoutManager = layoutManager
-        rvDosen.setHasFixedSize(true)
-        rvDosen.adapter = adapter
+        val rvKonsultasi: RecyclerView = view.findViewById(R.id.rv_konsultasi)
+        rvKonsultasi.layoutManager = layoutManager
+        rvKonsultasi.setHasFixedSize(true)
+        rvKonsultasi.adapter = adapter
     }
 }

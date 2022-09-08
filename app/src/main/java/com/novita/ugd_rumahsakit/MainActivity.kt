@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_createraccount)
 
         username = findViewById(R.id.etUsername)
         password = findViewById(R.id.etPassword)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btn_create)
 
         btnRegister.setOnClickListener {
-            val intent = Intent(this, NextActivity::class.java)
+            val intent = Intent(this, Tampilan::class.java)
             val mBundle = Bundle()
             mBundle.putString("username", username.text.toString())
             mBundle.putString("password", password.text.toString())
@@ -36,10 +36,8 @@ class MainActivity : AppCompatActivity() {
             mBundle.putString("tanggalLahir", tanggalLahir.text.toString())
             mBundle.putString("nomorTelepon", nomorTelepon.text.toString())
             intent.putExtra("register", mBundle)
-            intent.putExtras(Bundle)
 
             startActivity(intent)
-
             //EXCEPTION HANDLING LOGIN
             //private latenit var inputUsername: TextInputLayout
             //private latenit var inputPassword: TextInputLayout

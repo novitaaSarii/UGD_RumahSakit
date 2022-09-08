@@ -23,9 +23,9 @@ class FragmentHome : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         val adapter: RVHomeAdapter = RVHomeAdapter(Home.listOfHome)
 
-        val rvDosen: RecyclerView = view.findViewById(R.id.rv_home)
-        rvDosen.layoutManager = layoutManager
-        rvDosen.setHasFixedSize(true)
-        rvDosen.adapter = adapter
+        val rvHome: RecyclerView = view.findViewById(R.id.rv_Home)
+        rvHome.layoutManager = layoutManager
+        rvHome.setHasFixedSize(true)
+        rvHome.adapter = adapter
     }
 }

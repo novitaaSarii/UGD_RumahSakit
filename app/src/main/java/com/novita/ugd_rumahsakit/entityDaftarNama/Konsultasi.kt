@@ -1,6 +1,6 @@
 package com.novita.ugd_rumahsakit.entityDaftarNama
 
-class Konsultasi(var namaDokter: String, var spesialis: String, kontakDokter: String, var IDDokter: Int) {
+class Konsultasi(var namaDokter: String, var spesialis: String, var kontakDokter: String, var IDDokter: String) {
 
     companion object {
         @JvmStatic
