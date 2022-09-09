@@ -9,77 +9,76 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var Iusername: TextInputLayout
-    private lateinit var Ipassword: TextInputLayout
-    private lateinit var Iemail : TextInputLayout
-    private lateinit var ItanggalLahir: TextInputLayout
-    private lateinit var InomorTelepon: TextInputLayout
+    private lateinit var Iusername: TextInputEditText
+    private lateinit var Ipassword: TextInputEditText
+    private lateinit var Iemail : TextInputEditText
+    private lateinit var ItanggalLahir: TextInputEditText
+    private lateinit var InomorTelepon: TextInputEditText
     private lateinit var IbtnRegister : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createraccount)
 
-        Iusername = findViewById(R.id.etUsername)
-        Ipassword = findViewById(R.id.etPassword)
-        Iemail = findViewById(R.id.etEmail)
-        ItanggalLahir = findViewById(R.id.etTanggalLahir)
-        InomorTelepon = findViewById(R.id.etNomorTelepon)
+        Iusername = findViewById(R.id.username)
+        Ipassword = findViewById(R.id.password)
+        Iemail = findViewById(R.id.email)
+        ItanggalLahir = findViewById(R.id.tanggal)
+        InomorTelepon = findViewById(R.id.Nomor)
         IbtnRegister = findViewById(R.id.btn_create)
 
 
         IbtnRegister.setOnClickListener {
             var checkCreateAccount = false
-            val username : String =  Iusername.editText.toString()
-            val password : String =  Ipassword.editText.toString()
-            val email  : String =  Iemail.editText.toString()
-            val tanggalLahir : String =  ItanggalLahir.editText.toString()
-            val nomorTelepon : String =  InomorTelepon.editText.toString()
 
+            val username : String =  Iusername.text.toString()
+            val password : String =  Ipassword.text.toString()
+            val email  : String =  Iemail.text.toString()
+            val tanggalLahir : String =  ItanggalLahir.text.toString()
+            val nomorTelepon : String =  InomorTelepon.text.toString()
 
             if(username.isEmpty()){
                 Iusername.setError("Username wrong")
                 checkCreateAccount = false
+                return@setOnClickListener
             }
 
             if(password.isEmpty()){
                 Ipassword.setError("password wrong")
                 checkCreateAccount = false
+                return@setOnClickListener
             }
 
             if(email.isEmpty()){
                 Iemail.setError("email wrong")
                 checkCreateAccount = false
+                return@setOnClickListener
             }
 
             if(tanggalLahir.isEmpty()){
-                ItanggalLahir.setError("Tanggal  Lahir wrong ")
+                ItanggalLahir.setError("Tanggal Lahir wrong ")
                 checkCreateAccount = false
+                return@setOnClickListener
             }
 
             if(nomorTelepon.isEmpty()){
                 InomorTelepon.setError("nomor Telepon wrong")
                 checkCreateAccount = false
+                return@setOnClickListener
             }
 
             val balikLogin = Intent(this, Tampilan::class.java)
-
             val mBundle = Bundle()
-            mBundle.putString("username", Iusername.editText.toString())
-            mBundle.putString("password", Ipassword.editText.toString())
-            mBundle.putString("email", Iemail.editText.toString())
-            mBundle.putString("tanggalLahir", ItanggalLahir.editText.toString())
-            mBundle.putString("nomorTelepon", InomorTelepon.editText.toString())
-            intent.putExtra("register", mBundle)
+            mBundle.putString("username", Iusername.text.toString())
+            mBundle.putString("password", Ipassword.text.toString())
+            mBundle.putString("email", Iemail.text.toString())
+            mBundle.putString("tanggalLahir", ItanggalLahir.text.toString())
+            mBundle.putString("nomorTelepon", InomorTelepon.text.toString())
+            balikLogin.putExtra("register", mBundle)
 
-            if(mBundle !=null){
-                intent.putExtras(mBundle)
-            }
             startActivity(balikLogin)
 
         }
-
-
 
 
     }
