@@ -17,8 +17,7 @@
         android:layout_centerVertical="true"
         android:src="@drawable/logo"
         tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="236dp" />
-
-
+        tools:layout_editor_absoluteY="236dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
