@@ -16,12 +16,14 @@
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="false" />
+            android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+    </activity>
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -30,9 +32,8 @@
             android:exported="false" />
         <activity
             android:name=".Tampilan"
-            android:exported="true">
+            android:exported="true"/>
 
-        </activity>
 
     </application>
 
