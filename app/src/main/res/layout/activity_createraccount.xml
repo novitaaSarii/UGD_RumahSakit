@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MainLayout"
@@ -8,21 +9,20 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="343dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:text="Rumah Sakit Atma Jaya"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textStyle="bold"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/taskRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/recycleview_createaccount"
+        tools:viewBindingIgnore="true" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etUsername"
@@ -34,10 +34,10 @@
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.062"
+        app:layout_constraintTop_toTopOf="@+id/taskRv"
+        app:layout_constraintVertical_bias="0.325"
         app:startIconDrawable="@drawable/ic_person_24">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -165,36 +165,4 @@
 
     </com.google.android.material.button.MaterialButton>
 
-    <TextView
-        android:id="@+id/subkalimat"
-        android:layout_width="135dp"
-        android:layout_height="26dp"
-        android:layout_gravity="center"
-        android:text="Already have a account?"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/logIn"
-        android:layout_width="85dp"
-        android:layout_height="26dp"
-        android:text="Log In"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92"></androidx.appcompat.widget.AppCompatTextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

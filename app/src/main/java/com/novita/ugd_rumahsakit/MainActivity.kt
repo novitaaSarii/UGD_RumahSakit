@@ -8,14 +8,20 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.novita.ugd_rumahsakit.MainAdapter.CreateAccountAdapter
+import com.novita.ugd_rumahsakit.Task.TaskList
+import com.novita.ugd_rumahsakit.databinding.ActivityCreateraccountBinding
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var Iusername: TextInputEditText
     private lateinit var Ipassword: TextInputEditText
     private lateinit var Iemail : TextInputEditText
     private lateinit var ItanggalLahir: TextInputEditText
     private lateinit var InomorTelepon: TextInputEditText
     private lateinit var IbtnRegister : Button
+
+    var binding: ActivityCreateraccountBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,9 +87,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
+        binding = ActivityCreateraccountBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+        val adapter = CreateAccountAdapter(TaskList.tasklist)
+        binding?.taskRv?.adapter = adapter
     }
 
-
 }
+
+
 
