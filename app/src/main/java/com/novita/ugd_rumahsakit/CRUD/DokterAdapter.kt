@@ -12,7 +12,7 @@ import com.novita.ugd_rumahsakit.RoomDokter.Dokter
 import kotlinx.android.synthetic.main.activity_createraccount.view.*
 import kotlinx.android.synthetic.main.activity_dokter_adapter.view.*
 
-class DokterAdapter (private val Dokter: ArrayList<Dokter>, private val listener: OnAdapterListerner):
+class DokterAdapter (private val Dokter: ArrayList<Dokter>, private val listener: OnAdapterListener):
     RecyclerView.Adapter<DokterAdapter.DokterViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -48,7 +48,7 @@ class DokterAdapter (private val Dokter: ArrayList<Dokter>, private val listener
         notifyDataSetChanged()
     }
     interface OnAdapterListener {
-        fun onClick(dokter: Dokter)
+        fun onCreate(dokter: Dokter)
         fun onUpdate(dokter: Dokter)
         fun onDelete(dokter: Dokter)
     }

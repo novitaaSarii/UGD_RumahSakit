@@ -1,8 +1,5 @@
 package com.novita.ugd_rumahsakit.RoomDokter
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
 import androidx.room.*
 
 @Dao

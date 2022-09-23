@@ -4,6 +4,7 @@ package com.novita.ugd_rumahsakit.CRUD
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.novita.ugd_rumahsakit.R
 import com.novita.ugd_rumahsakit.RoomDokter.Constant
 import com.novita.ugd_rumahsakit.RoomDokter.Dokter
 import com.novita.ugd_rumahsakit.RoomDokter.DokterDB
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 
 class EditActivity : AppCompatActivity() {
     val db by lazy { DokterDB(this) }
-    private var namaDokter: Int = 0
+    private var namaDokter: String = 0.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +48,8 @@ class EditActivity : AppCompatActivity() {
         button_save.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 db.DokterDAO().addDokter(
-                    Dokter(0,edit_namaDokter.text.toString(), edit_IDDokter.text.toString(),
-                        edit_spesialis.text.toString(), edit_kontakDokter.text.toString())
+                    Dokter(namaDokter, edit_spesialis.text.toString(), edit_IDDokter.text.toString(),
+                        edit_namaDokter.text.toString(), edit_kontakDokter.text.toString())
                 )
                 finish()
             }
@@ -56,8 +57,8 @@ class EditActivity : AppCompatActivity() {
         button_update.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 db.DokterDAO().updateDokter(
-                    Dokter(namaDokter = , edit_namaDokter.text.toString(),
-                        edit_namaDokter.text.toString())
+                    Dokter(namaDokter, edit_spesialis.text.toString(), edit_IDDokter.text.toString(),
+                        edit_namaDokter.text.toString(), edit_kontakDokter.text.toString())
                 )
                 finish()
             }
@@ -65,13 +66,13 @@ class EditActivity : AppCompatActivity() {
     }
 
     fun getDokter() {
-        namaDokter = intent.getIntExtra("intent_namaDokter", 0)
+        namaDokter = String("string_namaDokter", 0)
         CoroutineScope(Dispatchers.IO).launch {
             val dokter = db.DokterDAO().getDokter(namaDokter)[0]
-            edit_namaDokter.setText(dokter.namaDokter)
+            edit_spesialis.setText(dokter.namaDokter)
             edit_IDDokter.setText(dokter.IDDokter)
-            edit_spesialis.setText(dokter.spesialis)
-            edit_kontakDokter.setTest(dokter.kontakDokter)
+            edit_namaDokter.setText(dokter.spesialis)
+            edit_kontakDokter.setText(dokter.kontakDokter)
         }
     }
     override fun onSupportNavigateUp(): Boolean {

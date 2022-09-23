@@ -40,6 +40,7 @@ android{
     viewBinding{
         enabled = true
     }
+    buildToolsVersion '33.0.0'
 }
 dependencies {
 
