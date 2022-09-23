@@ -1,10 +1,12 @@
 package com.novita.ugd_rumahsakit
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.novita.ugd_rumahsakit.EditActivity
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
 import com.novita.ugd_rumahsakit.databinding.ActivityCreateraccountBinding
 import com.novita.ugd_rumahsakit.databinding.ActivityProfilBinding
@@ -42,6 +44,18 @@ class ProfilActivity : AppCompatActivity() {
             binding?.namaemail?.text = username.email
             binding?.namatanggal?.text = username.tanggal
             binding?.namahp?.text = username.nomor
+        }
+
+        button_edit.setOnClickListener{
+            val edit=Bundle()
+            val moveMain = Intent(this@ProfilActivity, EditActivity::class.java)
+            edit.putString("username",binding?.namauser?.text.toString())
+            edit.putString("password",binding?.namapass?.text.toString())
+            edit.putString("email",binding?.namaemail?.text.toString())
+            edit.putString("tanggal",binding?.namatanggal?.text.toString())
+            edit.putString("nomor",binding?.namahp?.text.toString())
+            moveMain.putExtras(edit)
+            startActivity(moveMain)
         }
     }
 }
