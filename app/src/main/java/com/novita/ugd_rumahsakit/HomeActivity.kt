@@ -1,6 +1,7 @@
 package com.novita.ugd_rumahsakit
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -37,7 +38,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.home){
             changeFragment(FragmentHome())
-        } else if(item.itemId == R.id.konsultasi){
+        } else if(item.itemId == R.id.profil) {
+            val moveHome = Intent(this@HomeActivity, ProfilActivity::class.java)
+            startActivity(moveHome)
+        }else if(item.itemId == R.id.konsultasi){
             changeFragment(FragmentKonsultasi())
         } else{
 

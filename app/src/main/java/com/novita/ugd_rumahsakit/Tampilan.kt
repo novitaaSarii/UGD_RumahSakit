@@ -1,6 +1,8 @@
 package com.novita.ugd_rumahsakit
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +12,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.novita.ugd_rumahsakit.MVVM.registerAdapter
+import com.novita.ugd_rumahsakit.room.registerDB
 
 class Tampilan : AppCompatActivity() {
+    val db by lazy{ registerDB(this) }
+    lateinit var registerAdapter: registerAdapter
+
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputpassword: TextInputLayout
     private lateinit var tampilanlayout: ConstraintLayout
@@ -20,7 +27,8 @@ class Tampilan : AppCompatActivity() {
     lateinit var vUsername: String
     lateinit var vPassword: String
 
-    
+    var sharePreferences: SharedPreferences? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tampilan)
@@ -32,6 +40,8 @@ class Tampilan : AppCompatActivity() {
         tampilanlayout=findViewById(R.id.tampilanLayout)
         val btnRegister : Button = findViewById(R.id.btnRegister)
         val btnLogin : Button = findViewById(R.id.btnLogin)
+
+        sharePreferences = getSharedPreferences("myPerference", Context.MODE_PRIVATE)
 
         btnLogin.setOnClickListener(View.OnClickListener{
             var checkLogin = false
@@ -63,6 +73,14 @@ class Tampilan : AppCompatActivity() {
 
             if(username == vUsername  && password == vPassword)  checkLogin = true
             if(!checkLogin) return@OnClickListener
+
+            /*
+              share preference untuk membandingkan username waktu login
+            */
+
+            val editor: SharedPreferences.Editor = sharePreferences!!.edit()
+            editor.putString("username", username)
+            editor.apply()
 
             val moveHome = Intent(this@Tampilan, HomeActivity::class.java)
             startActivity(moveHome)

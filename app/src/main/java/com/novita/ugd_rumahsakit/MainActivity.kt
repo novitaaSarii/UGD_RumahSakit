@@ -8,89 +8,113 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.novita.ugd_rumahsakit.MVVM.registerAdapter
 import com.novita.ugd_rumahsakit.MainAdapter.CreateAccountAdapter
 import com.novita.ugd_rumahsakit.Task.TaskList
 import com.novita.ugd_rumahsakit.databinding.ActivityCreateraccountBinding
+import com.novita.ugd_rumahsakit.room.register
+import com.novita.ugd_rumahsakit.room.registerDB
+import kotlinx.android.synthetic.main.activity_createraccount.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var Iusername: TextInputEditText
-    private lateinit var Ipassword: TextInputEditText
-    private lateinit var Iemail : TextInputEditText
-    private lateinit var ItanggalLahir: TextInputEditText
-    private lateinit var InomorTelepon: TextInputEditText
-    private lateinit var IbtnRegister : Button
-
+    /*
+         View Binding
+      */
     var binding: ActivityCreateraccountBinding? = null
+
+    /*
+        create data base
+     */
+    val db by lazy { registerDB(this) }
+    lateinit var registerAdapter: registerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createraccount)
 
-        Iusername = findViewById(R.id.username)
-        Ipassword = findViewById(R.id.password)
-        Iemail = findViewById(R.id.email)
-        ItanggalLahir = findViewById(R.id.tanggal)
-        InomorTelepon = findViewById(R.id.Nomor)
-        IbtnRegister = findViewById(R.id.btn_create)
+        /*
+            View Binding
+        */
+        binding = ActivityCreateraccountBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+        val adapter = CreateAccountAdapter(TaskList.tasklist)
 
 
-        IbtnRegister.setOnClickListener {
+        binding?.btnCreate?.setOnClickListener {
             var checkCreateAccount = false
 
-            val username : String =  Iusername.text.toString()
-            val password : String =  Ipassword.text.toString()
-            val email  : String =  Iemail.text.toString()
-            val tanggalLahir : String =  ItanggalLahir.text.toString()
-            val nomorTelepon : String =  InomorTelepon.text.toString()
+            val username : String =  binding?.etUsername?.editText?.text.toString()
+            val password : String =  binding?.etPassword?.editText?.text.toString()
+            val email  : String =  binding?.etEmail?.editText?.text.toString()
+            val tanggalLahir : String =  binding?.etTanggalLahir?.editText?.text.toString()
+            val nomorTelepon : String =  binding?.etNomorTelepon?.editText?.text.toString()
 
             if(username.isEmpty()){
-                Iusername.setError("Username wrong")
+                etUsername.setError("Username wrong")
                 checkCreateAccount = false
                 return@setOnClickListener
             }
 
             if(password.isEmpty()){
-                Ipassword.setError("password wrong")
+                etPassword.setError("password wrong")
                 checkCreateAccount = false
                 return@setOnClickListener
             }
 
             if(email.isEmpty()){
-                Iemail.setError("email wrong")
+                etEmail.setError("email wrong")
                 checkCreateAccount = false
                 return@setOnClickListener
             }
 
             if(tanggalLahir.isEmpty()){
-                ItanggalLahir.setError("Tanggal Lahir wrong ")
+                etTanggalLahir.setError("Tanggal Lahir wrong ")
                 checkCreateAccount = false
                 return@setOnClickListener
             }
 
             if(nomorTelepon.isEmpty()){
-                InomorTelepon.setError("nomor Telepon wrong")
+                etNomorTelepon.setError("nomor Telepon wrong")
                 checkCreateAccount = false
                 return@setOnClickListener
             }
 
+            CoroutineScope(Dispatchers.IO).launch {
+                db.registerDAO().addregister(
+                    register(
+                        0,
+                        etUsername?.editText?.text.toString(),
+                        etPassword?.editText?.text.toString(),
+                        etEmail?.editText?.text.toString(),
+                        etTanggalLahir?.editText?.text.toString(),
+                        etNomorTelepon?.editText?.text.toString()
+                    )
+                )}
+
             val balikLogin = Intent(this, Tampilan::class.java)
             val mBundle = Bundle()
-            mBundle.putString("username", Iusername.text.toString())
-            mBundle.putString("password", Ipassword.text.toString())
-            mBundle.putString("email", Iemail.text.toString())
-            mBundle.putString("tanggalLahir", ItanggalLahir.text.toString())
-            mBundle.putString("nomorTelepon", InomorTelepon.text.toString())
+            mBundle.putString("username", etUsername?.editText?.text.toString())
+            mBundle.putString("password", etPassword?.editText?.text.toString() )
+            mBundle.putString("email", etEmail?.editText?.text.toString())
+            mBundle.putString("tanggalLahir", etTanggalLahir?.editText?.text.toString())
+            mBundle.putString("nomorTelepon", etNomorTelepon?.editText?.text.toString())
             balikLogin.putExtra("register", mBundle)
 
             startActivity(balikLogin)
 
         }
 
-        binding = ActivityCreateraccountBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
-        val adapter = CreateAccountAdapter(TaskList.tasklist)
-        binding?.taskRv?.adapter = adapter
+        fun intentCreate(registerusername : String, intentType: String){
+            startActivity(
+                Intent(applicationContext, MainActivity::class.java)
+                    .putExtra("intent_username", registerusername)
+                    .putExtra("intent_type", intentType)
+            )
+        }
     }
 
 }
