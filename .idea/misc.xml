@@ -31,15 +31,20 @@
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.311" />
-        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_chat_24.xml" value="0.311" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_chat_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_date_range_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_email_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_home_24.xml" value="0.311" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_lock_24.xml" value="0.1" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_person_24.xml" value="0.311" />
-        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_edit.xml" value="0.1" />
-        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_edit_dokter.xml" value="0.25" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/drawable/ic_phone_android_24.xml" value="0.1" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_edit.xml" value="0.33" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_edit_dokter.xml" value="0.33" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_next.xml" value="0.358695652173913" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_notification.xml" value="0.35280797101449274" />
+        <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/activity_notification_send.xml" value="0.35280797101449274" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/fragment_home2.xml" value="0.358695652173913" />
         <entry key="..\:/tugas/UGD_RumahSakit/app/src/main/res/layout/fragment_konsultasi.xml" value="0.35260416666666666" />

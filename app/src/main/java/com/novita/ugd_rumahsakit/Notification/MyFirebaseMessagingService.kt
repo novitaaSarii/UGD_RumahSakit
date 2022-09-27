@@ -3,11 +3,13 @@ package com.novita.ugd_rumahsakit.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.novita.ugd_rumahsakit.R
@@ -30,7 +32,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val channelId = "CHANNEL"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_register_24)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(messageTitle)
             .setContentText(messageBody)
             .setAutoCancel(true)
