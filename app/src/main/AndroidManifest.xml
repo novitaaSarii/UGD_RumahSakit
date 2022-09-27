@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGD_RumahSakit"
         tools:targetApi="31">
-        <activity
-            android:name=".DokterAdapter"
-            android:exported="false" />
+
         <activity
             android:name=".EditActivity"
             android:exported="false" />
@@ -41,6 +39,13 @@
         <activity
             android:name=".Tampilan"
             android:exported="true" />
-    </application>
 
+        <service android:name=".Notification.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".Notification.NotificationReceiver"/>
+    </application>
 </manifest>
