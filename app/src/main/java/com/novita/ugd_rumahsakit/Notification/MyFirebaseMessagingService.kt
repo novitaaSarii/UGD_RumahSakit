@@ -30,7 +30,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val channelId = "CHANNEL"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_registrasi_24)
+            .setSmallIcon(R.drawable.ic_register_24)
             .setContentTitle(messageTitle)
             .setContentText(messageBody)
             .setAutoCancel(true)
