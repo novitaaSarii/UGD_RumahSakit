@@ -13,7 +13,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.novita.ugd_rumahsakit.CreateNotification.Companion.CHANNEL_1_ID
 import com.novita.ugd_rumahsakit.CreateNotification.Companion.CHANNEL_2_ID
-import com.novita.ugd_rumahsakit.R
 
 class NotificationSend : AppCompatActivity() {
     private var notificationManager: NotificationManagerCompat? = null
