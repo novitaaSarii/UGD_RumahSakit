@@ -1,15 +1,20 @@
 package com.novita.ugd_rumahsakit
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
 import com.novita.ugd_rumahsakit.MainAdapter.CreateAccountAdapter
+import com.novita.ugd_rumahsakit.Notification.NotificationReceiver
 import com.novita.ugd_rumahsakit.Task.TaskList
 import com.novita.ugd_rumahsakit.databinding.ActivityCreateraccountBinding
 import com.novita.ugd_rumahsakit.room.register
@@ -32,10 +37,16 @@ class MainActivity : AppCompatActivity() {
     val db by lazy { registerDB(this) }
     lateinit var registerAdapter: registerAdapter
 
+    private val CHANNEL_ID_1 ="channel_notifikasi_01"
+    private val notificationId1 = 101
+    private val notificationId2 = 102
+    private val notificationId3 = 103
+    val GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createraccount)
-
+        createNotificationChannel()
         /*
             View Binding
         */
@@ -93,8 +104,13 @@ class MainActivity : AppCompatActivity() {
                         etTanggalLahir?.editText?.text.toString(),
                         etNomorTelepon?.editText?.text.toString()
                     )
-                )}
 
+                )}
+            /*
+               Notifikasi
+            */
+            
+            sendNotifiaction1()
             val balikLogin = Intent(this, Tampilan::class.java)
             val mBundle = Bundle()
             mBundle.putString("username", etUsername?.editText?.text.toString())
@@ -103,6 +119,8 @@ class MainActivity : AppCompatActivity() {
             mBundle.putString("tanggalLahir", etTanggalLahir?.editText?.text.toString())
             mBundle.putString("nomorTelepon", etNomorTelepon?.editText?.text.toString())
             balikLogin.putExtra("register", mBundle)
+
+
 
             startActivity(balikLogin)
 
@@ -115,6 +133,76 @@ class MainActivity : AppCompatActivity() {
                     .putExtra("intent_type", intentType)
             )
         }
+    }
+
+    private fun createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR_0_1){
+            val name="Berhasil Register"
+            val descriptionText ="Berhasil Register1"
+
+            val channel1= NotificationChannel(CHANNEL_ID_1, name, NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description= descriptionText
+            }
+
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel1)
+        }
+    }
+
+    private fun sendNotifiaction1(){
+        val intent : Intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+        val picture = BitmapFactory.decodeResource(resources, R.drawable.dokter)
+
+        val broadcastIntent: Intent= Intent(this, NotificationReceiver::class.java)
+        broadcastIntent.putExtra("toasMessage", binding?.etUsername?.editText?.text.toString())
+        val actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID_1)
+            .setSmallIcon(R.drawable.ic_baseline_looks_one_24)
+            .setContentText("Berhasil Register")
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .setColor(Color.BLUE)
+            .setAutoCancel(true)
+            .setOnlyAlertOnce(true)
+            .setContentIntent(pendingIntent)
+            .setLargeIcon(picture)
+            .setStyle(NotificationCompat.BigPictureStyle()
+                .bigLargeIcon(null)
+                .bigPicture(picture))
+            .addAction(R.mipmap.ic_launcher, "Toast", actionIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        val builder2 = NotificationCompat.Builder(this, CHANNEL_ID_1)
+            .setSmallIcon((R.drawable.ic_baseline_looks_two_24))
+            .setContentText("Hallo Kami mempunyai Penawaran menarik")
+            .setColor(Color.BLUE)
+            .setAutoCancel(true)
+            .setOnlyAlertOnce(true)
+            .setContentIntent(pendingIntent)
+            .addAction(R.mipmap.ic_launcher, "Toast", actionIntent)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+
+        val summaryNotification = NotificationCompat.Builder(this, CHANNEL_ID_1)
+            .setSmallIcon((R.drawable.ic_baseline_looks_one_24))
+            .setAutoCancel(true)
+            .setOnlyAlertOnce(true)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setGroup(GROUP_KEY_WORK_EMAIL)
+            .setGroupSummary(true)
+            .build()
+
+        with(NotificationManagerCompat.from(this)){
+            notify(notificationId1, builder.build())
+            notify(notificationId2, builder2.build())
+            notify(notificationId3, summaryNotification)
+        }
+
     }
 
 }

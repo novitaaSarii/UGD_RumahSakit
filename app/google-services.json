@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615678817428",
+    "project_id": "ugd-rumahsakit",
+    "storage_bucket": "ugd-rumahsakit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615678817428:android:5c373bbe00476ae4b07081",
+        "android_client_info": {
+          "package_name": "com.novita.ugd_rumahsakit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615678817428-aca66vb12b0j1km1eso4op3rku218t0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkhq2IHuONzu1XhQ4e1HCuaOvAqLhSbz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615678817428-aca66vb12b0j1km1eso4op3rku218t0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
