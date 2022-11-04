@@ -10,6 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.novita.ugd_rumahsakit.Maker.MakerLocation
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +44,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(moveHome)
         }else if(item.itemId == R.id.konsultasi){
             changeFragment(FragmentKonsultasi())
-        } else{
+        }else if(item.itemId == R.id.Map) {
+            val moveHome = Intent(this@HomeActivity, MakerLocation::class.java)
+            startActivity(moveHome)
+        }else{
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(this@HomeActivity)
             builder.setMessage("Are you sure want to exit?")
