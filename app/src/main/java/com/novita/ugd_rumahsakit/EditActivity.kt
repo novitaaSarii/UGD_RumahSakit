@@ -6,7 +6,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
+import com.novita.ugd_rumahsakit.camera.cameraActivity
 import com.novita.ugd_rumahsakit.databinding.ActivityEditBinding
 import com.novita.ugd_rumahsakit.room.register
 import com.novita.ugd_rumahsakit.room.registerDB
@@ -34,6 +36,12 @@ class EditActivity : AppCompatActivity() {
 
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        val btnImage= binding?.imageView
+
+        btnImage?.setOnClickListener(){
+            val mainHome= Intent(this@EditActivity, cameraActivity::class.java)
+            this.startActivity(mainHome)
+        }
 
         update= intent.extras!!
         binding?.namauser?.setText(update.getString("username"))
