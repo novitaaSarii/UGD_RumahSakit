@@ -3,7 +3,7 @@
 
     <item android:title="Home"
     android:id="@+id/home"/>
-    <item android:title="Konsultasi"
+    <item android:title="Spesialis"
     android:id="@+id/konsultasi"/>
     <item android:title="Profil"
         android:id="@+id/profil"/>
