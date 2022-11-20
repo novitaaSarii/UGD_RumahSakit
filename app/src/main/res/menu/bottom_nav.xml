@@ -9,6 +9,8 @@
         android:id="@+id/profil"/>
     <item android:title="Map"
         android:id="@+id/Map"/>
+    <item android:title="Profile Database"
+        android:id="@+id/Profile"/>
     <item android:title="Logout"
     android:id="@+id/logout"/>
 </menu>

@@ -12,7 +12,13 @@ import com.novita.ugd_rumahsakit.camera.cameraActivity
 import com.novita.ugd_rumahsakit.databinding.ActivityEditBinding
 import com.novita.ugd_rumahsakit.room.register
 import com.novita.ugd_rumahsakit.room.registerDB
+import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.activity_profil.*
+import kotlinx.android.synthetic.main.activity_profil.namaemail
+import kotlinx.android.synthetic.main.activity_profil.namahp
+import kotlinx.android.synthetic.main.activity_profil.namapass
+import kotlinx.android.synthetic.main.activity_profil.namatanggal
+import kotlinx.android.synthetic.main.activity_profil.namauser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -77,6 +83,12 @@ class EditActivity : AppCompatActivity() {
                 val update = Intent(this@EditActivity, ProfilActivity::class.java)
                 startActivity(update)
             }
+
+            button_update.setOnClickListener{
+                val move = Intent(this,cameraActivity::class.java)
+                startActivity(move)
+            }
+
 
         }
 
