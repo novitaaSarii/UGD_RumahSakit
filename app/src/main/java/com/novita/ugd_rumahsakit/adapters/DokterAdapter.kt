@@ -98,7 +98,6 @@ class DokterAdapter (private var dokterList : List<dokter>, context: Context) :
                 filtereddokterList.addAll((filterResults.values as List<dokter>))
                 notifyDataSetChanged()
             }
-
         }
     }
 
