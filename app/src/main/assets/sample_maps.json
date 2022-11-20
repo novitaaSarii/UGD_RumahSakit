@@ -1,0 +1,26 @@
+{
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.779433,
+          "lng": 110.415782
+        }
+      },
+      "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
+      "vicinity": "Jl. Babarsari No.43, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.783437,
+          "lng": 110.390938
+        }
+      },
+      "name": "Rumah Sakit Siloam Yogyakarta",
+      "vicinity": "Jl. Laksda Adisucipto No.32-34, Demangan, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55221"
+
+    }
+  ],
+  "status": "OK"
+}

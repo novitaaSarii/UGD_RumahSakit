@@ -3,6 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.novita.ugd_rumahsakit">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +23,27 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.UGD_RumahSakit"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CreateNotification"
+            android:name=".spesialisnamaDokter.dokterHome"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".spesialisnamaDokter.Add_edit_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".camera.cameraActivity"
             android:exported="false" />
         <activity
-            android:name=".Notification"
-            android:exported="false" />
-        <activity
-            android:name=".NotificationSend"
+            android:name=".Maker.MakerLocation"
             android:exported="false" />
         <activity
             android:name=".EditActivity"
@@ -44,9 +67,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".Tampilan"
-            android:exported="true" />
 
         <service
             android:name=".Notification.MyFirebaseMessagingService"
@@ -57,6 +77,10 @@
         </service>
 
         <receiver android:name=".Notification.NotificationReceiver" />
+
+        <activity
+            android:name=".Tampilan"
+            android:exported="false" />
     </application>
 
 </manifest>

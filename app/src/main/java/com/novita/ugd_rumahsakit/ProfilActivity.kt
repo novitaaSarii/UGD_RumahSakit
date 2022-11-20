@@ -1,10 +1,16 @@
 package com.novita.ugd_rumahsakit
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.hardware.Camera
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.Toast
 import com.novita.ugd_rumahsakit.EditActivity
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
@@ -19,6 +25,7 @@ import kotlinx.android.synthetic.main.activity_profil.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class ProfilActivity : AppCompatActivity() {
 
@@ -26,7 +33,6 @@ class ProfilActivity : AppCompatActivity() {
     lateinit var registerAdapter: registerAdapter
     var sharePreferences: SharedPreferences? = null
     var binding: ActivityProfilBinding? = null
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +55,7 @@ class ProfilActivity : AppCompatActivity() {
         button_edit.setOnClickListener{
             val edit=Bundle()
             val moveMain = Intent(this@ProfilActivity, EditActivity::class.java)
+
             edit.putString("username",binding?.namauser?.text.toString())
             edit.putString("password",binding?.namapass?.text.toString())
             edit.putString("email",binding?.namaemail?.text.toString())
@@ -56,6 +63,6 @@ class ProfilActivity : AppCompatActivity() {
             edit.putString("nomor",binding?.namahp?.text.toString())
             moveMain.putExtras(edit)
             startActivity(moveMain)
+            }
         }
     }
-}

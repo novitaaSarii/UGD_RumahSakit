@@ -4,12 +4,14 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.novita.ugd_rumahsakit.Maker.MakerLocation
+import com.novita.ugd_rumahsakit.profile.ProfileActivity
+import com.novita.ugd_rumahsakit.spesialisnamaDokter.dokterHome
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +44,15 @@ class HomeActivity : AppCompatActivity() {
             val moveHome = Intent(this@HomeActivity, ProfilActivity::class.java)
             startActivity(moveHome)
         }else if(item.itemId == R.id.konsultasi){
-            changeFragment(FragmentKonsultasi())
-        } else{
+            val moveHome = Intent(this@HomeActivity, dokterHome::class.java)
+            startActivity(moveHome)
+        }else if(item.itemId == R.id.Map) {
+            val moveHome = Intent(this@HomeActivity, MakerLocation::class.java)
+            startActivity(moveHome)
+        }else if(item.itemId == R.id.Profile) {
+            val moveHome = Intent(this@HomeActivity, ProfileActivity::class.java)
+            startActivity(moveHome)
+        }else{
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(this@HomeActivity)
             builder.setMessage("Are you sure want to exit?")
