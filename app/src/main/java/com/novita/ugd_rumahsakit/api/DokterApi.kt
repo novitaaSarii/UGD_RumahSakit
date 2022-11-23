@@ -9,5 +9,6 @@ class DokterApi {
         val ADD_URL = BASE_URL + "dokter"
         val UPDATE_URL = BASE_URL + "dokter/"
         val DELETE_URL = BASE_URL + "dokter/"
+
     }
 }
