@@ -24,7 +24,7 @@
         android:layout_margin="12dp"
         android:ems="10"
         android:hint="Spesialis"
-        android:inputType="number"/>
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/editTextAlamat"
@@ -33,7 +33,7 @@
         android:layout_margin="12dp"
         android:ems="10"
         android:hint="Alamat"
-        android:inputType="phone"/>
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/editTextnomor"
@@ -42,7 +42,7 @@
         android:layout_margin="12dp"
         android:ems="10"
         android:hint="No. Telepon"
-        android:inputType="textAutoComplete"/>
+        android:inputType="phone"/>
 
     <Button
         android:id="@+id/buttonSave"
