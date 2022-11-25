@@ -38,6 +38,7 @@ android {
     buildFeatures{
         dataBinding = true
     }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
@@ -66,6 +67,8 @@ dependencies {
     implementation 'com.orhanobut:logger:2.2.0'
     //UGD untuk menampilkan bahwa sudah peringatan berhasil masuk
     implementation 'io.github.shashank02051997:FancyToast:2.0.2'
+    //Ugd untuk dropdown menu
+    implementation 'com.github.pedromassango:IBackdrop:3.0.0'
 
 
     def room_version = "2.4.3"
