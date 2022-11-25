@@ -1,5 +1,6 @@
 package com.novita.ugd_rumahsakit
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -12,8 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.master.permissionhelper.PermissionHelper
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
 import com.novita.ugd_rumahsakit.room.registerDB
+import com.shashank.sony.fancytoastlib.FancyToast
 
 class Tampilan : AppCompatActivity() {
     val db by lazy{ registerDB(this) }
@@ -32,6 +35,13 @@ class Tampilan : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tampilan)
+
+        //untuk permisi buka izin
+        val permissionHelper = PermissionHelper(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 100)
+        //Request all permission
+        permissionHelper?.requestAll {
+            Log.d("Permision", "All permission granted")
+        }
 
         setTitle("UGD2_RumahSakit")
 
@@ -61,7 +71,9 @@ class Tampilan : AppCompatActivity() {
             }
             val extra : Bundle? = getIntent().getBundleExtra("register")
             if (extra == null){
-                inputUsername.setError("Silahkan daftar dahulu")
+                FancyToast.makeText(this,"Data Tidak ada atau Data Salah!",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show()
+                inputUsername.setError("Username Salah")
+                inputpassword.setError("Password Salah ")
                 return@OnClickListener
             }
             else{
@@ -71,7 +83,7 @@ class Tampilan : AppCompatActivity() {
 
             }
 
-            if(username == vUsername  && password == vPassword)  checkLogin = true
+            if(username == vUsername  && password == vPassword) checkLogin = true
             if(!checkLogin) return@OnClickListener
 
             /*
@@ -81,7 +93,7 @@ class Tampilan : AppCompatActivity() {
             val editor: SharedPreferences.Editor = sharePreferences!!.edit()
             editor.putString("username", username)
             editor.apply()
-
+            FancyToast.makeText(this,"Selamat Berhasil Login ",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show()
             val moveHome = Intent(this@Tampilan, HomeActivity::class.java)
             startActivity(moveHome)
         })

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.novita.ugd_rumahsakit.Maker.MakerLocation
 import com.novita.ugd_rumahsakit.profile.ProfileActivity
 import com.novita.ugd_rumahsakit.qrcode.qrcode
+import com.novita.ugd_rumahsakit.qrcode.tampilanlibary
 import com.novita.ugd_rumahsakit.spesialisnamaDokter.dokterHome
 
 class HomeActivity : AppCompatActivity() {
@@ -54,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
             val moveHome = Intent(this@HomeActivity, ProfileActivity::class.java)
             startActivity(moveHome)
         }else if(item.itemId == R.id.qrcode) {
-            val moveHome = Intent(this@HomeActivity, qrcode::class.java)
+            val moveHome = Intent(this@HomeActivity, tampilanlibary::class.java)
             startActivity(moveHome)
         }else{
 

@@ -13,6 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.novita.ugd_rumahsakit.CreateNotification.Companion.CHANNEL_1_ID
 import com.novita.ugd_rumahsakit.CreateNotification.Companion.CHANNEL_2_ID
+import com.novita.ugd_rumahsakit.R
 
 class NotificationSend : AppCompatActivity() {
     private var notificationManager: NotificationManagerCompat? = null
@@ -40,15 +41,15 @@ class NotificationSend : AppCompatActivity() {
             this,
             0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT
         )
-        val largeIcon = BitmapFactory.decodeResource(resources, R.drawable.doctor)
+        val largeIcon = BitmapFactory.decodeResource(resources, R.drawable.dokter)
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_1_ID)
-            .setSmallIcon(R.drawable.ic_baseline_notification_24)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(title)
             .setContentText(message)
             .setLargeIcon(largeIcon)
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText(getString(R.string.long_dummy_text))
+//                    .bigText(getString(R.string.long_dummy_text))
                     .setBigContentTitle("Big Content Title")
                     .setSummaryText("Summary Text")
             )
@@ -67,7 +68,7 @@ class NotificationSend : AppCompatActivity() {
         val title = editTextTitle!!.text.toString()
         val message = editTextMessage!!.text.toString()
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_2_ID)
-            .setSmallIcon(R.drawable.ic_baseline_notification_24)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(title)
             .setContentText(message)
             .setStyle(

@@ -1,6 +1,5 @@
 package com.novita.ugd_rumahsakit
 
-import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,14 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.hardware.Camera
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.novita.ugd_rumahsakit.MVVM.registerAdapter
@@ -25,11 +19,12 @@ import com.novita.ugd_rumahsakit.Task.TaskList
 import com.novita.ugd_rumahsakit.databinding.ActivityCreateraccountBinding
 import com.novita.ugd_rumahsakit.room.register
 import com.novita.ugd_rumahsakit.room.registerDB
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_createraccount.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,10 +56,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
         val adapter = CreateAccountAdapter(TaskList.tasklist)
 
+        //untuk mengimplementasikan blogger ke logcat biar lebih rapi di error
+        Logger.addLogAdapter(AndroidLogAdapter())
 
         binding?.btnCreate?.setOnClickListener {
             var checkCreateAccount = false
-
+            Logger.d("Selamat datang Rumah Sakit Atma Jaya");
             val username : String =  binding?.etUsername?.editText?.text.toString()
             val password : String =  binding?.etPassword?.editText?.text.toString()
             val email  : String =  binding?.etEmail?.editText?.text.toString()
