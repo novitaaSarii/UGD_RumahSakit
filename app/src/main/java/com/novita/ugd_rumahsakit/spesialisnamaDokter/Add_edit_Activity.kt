@@ -97,6 +97,17 @@ class Add_edit_Activity : AppCompatActivity() {
         // Fungsi untuk menambah data dokter.
         setLoading(true)
 
+        if(etiddokter!!.text.toString().isEmpty()){
+            Toast.makeText(this@Add_edit_Activity, "ID tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }else if(etnama!!.text.toString().isEmpty()){
+            Toast.makeText(this@Add_edit_Activity, "Nama tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }else if(edspesialis!!.text.toString().isEmpty()){
+            Toast.makeText(this@Add_edit_Activity, "Spesialis tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }else if(edalamat!!.text.toString().isEmpty()){
+            Toast.makeText(this@Add_edit_Activity, "Alamat tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }
+        else{
+
         val dokter = dokter(
             etiddokter!!.text.toString(),
             etnama!!.text.toString(),
@@ -153,6 +164,9 @@ class Add_edit_Activity : AppCompatActivity() {
 
         // Menambahkan request ke request queue
         queue!!.add(stringRequest)
+
+        }
+        setLoading(false)
     }
 
     private fun updateDokter(id: Long) {

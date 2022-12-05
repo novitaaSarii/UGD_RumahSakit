@@ -13,7 +13,7 @@ import com.novita.ugd_rumahsakit.Maker.MakerLocation
 import com.novita.ugd_rumahsakit.profile.ProfileActivity
 import com.novita.ugd_rumahsakit.qrcode.qrcode
 import com.novita.ugd_rumahsakit.qrcode.tampilanlibary
-import com.novita.ugd_rumahsakit.spesialisnamaDokter.dokterHome
+import com.novita.ugd_rumahsakit.spesialisnamaDokter.DokterHome
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
             val moveHome = Intent(this@HomeActivity, ProfilActivity::class.java)
             startActivity(moveHome)
         }else if(item.itemId == R.id.konsultasi){
-            val moveHome = Intent(this@HomeActivity, dokterHome::class.java)
+            val moveHome = Intent(this@HomeActivity, DokterHome::class.java)
             startActivity(moveHome)
         }else if(item.itemId == R.id.Map) {
             val moveHome = Intent(this@HomeActivity, MakerLocation::class.java)

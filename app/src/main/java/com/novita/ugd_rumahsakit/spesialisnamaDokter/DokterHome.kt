@@ -27,7 +27,7 @@ import com.novita.ugd_rumahsakit.models.dokter
 import org.json.JSONObject
 import java.nio.charset.StandardCharsets
 
-class dokterHome : AppCompatActivity() {
+class DokterHome : AppCompatActivity() {
 
     private var srdokter: SwipeRefreshLayout? = null
     private var adapter: DokterAdapter? = null
@@ -62,7 +62,7 @@ class dokterHome : AppCompatActivity() {
 
         val fabAdd = findViewById<FloatingActionButton>(R.id.fab_add)
         fabAdd.setOnClickListener {
-            val i = Intent(this@dokterHome, Add_edit_Activity::class.java)
+            val i = Intent(this@DokterHome, Add_edit_Activity::class.java)
             startActivityForResult(i, LAUNCH_ADD_ACTIVITY)
         }
 
@@ -78,23 +78,23 @@ class dokterHome : AppCompatActivity() {
         val stringRequest: StringRequest = object :
             StringRequest(Method.GET, DokterApi.GET_ALL_URL, Response.Listener { response ->
                 val gson = Gson()
-                Log.d("dokterrrrrrrr",response.toString())
-                var res: ResponseDataDokter =
-                    gson.fromJson(response, ResponseDataDokter::class.java)
-                var dokter = res.data
-                adapter!!.setdokterList(dokter.toTypedArray())
+//                Log.d("dokterrrrrrrr",response.toString())
+                var dokter: Array<dokter> =
+                    gson.fromJson(response, Array<dokter>::class.java)
+//                var dokter = res.data
+                adapter!!.setdokterList(dokter)
                 adapter!!.filter.filter(svdokter!!.query)
                 srdokter!!.isRefreshing = false
 
                 if (!dokter.isEmpty())
                     Toast.makeText(
-                        this@dokterHome,
+                        this@DokterHome,
                         "Data Berhasil Diambil!",
                         Toast.LENGTH_SHORT
                     )
                         .show()
                 else
-                    Toast.makeText(this@dokterHome, "Data Kosong!", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@DokterHome, "Data Kosong!", Toast.LENGTH_SHORT)
                         .show()
             }, Response.ErrorListener { error ->
                 Log.d("dokterrrrrrrr",error.toString())
@@ -104,12 +104,12 @@ class dokterHome : AppCompatActivity() {
                         String(error.networkResponse.data, StandardCharsets.UTF_8)
                     val errors = JSONObject(responseBody)
                     Toast.makeText(
-                        this@dokterHome,
+                        this@DokterHome,
                         errors.getString("message"),
                         Toast.LENGTH_SHORT
                     ).show()
                 } catch (e: Exception) {
-                    Toast.makeText(this@dokterHome, e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DokterHome, e.message, Toast.LENGTH_SHORT).show()
                 }
             }) {
             // Menambahkan header pada request
@@ -132,7 +132,7 @@ class dokterHome : AppCompatActivity() {
                 val gson = Gson()
                 var dokter = gson.fromJson(response, dokter::class.java)
                 if(dokter != null)
-                    Toast.makeText(this@dokterHome, "Data Berhasil Dihapus!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DokterHome, "Data Berhasil Dihapus!", Toast.LENGTH_SHORT).show()
                 allDokter()
             }, Response.ErrorListener { error ->
                 setLoading(false)
@@ -140,12 +140,12 @@ class dokterHome : AppCompatActivity() {
                     val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
                     val errors = JSONObject(responseBody)
                     Toast.makeText(
-                        this@dokterHome,
+                        this@DokterHome,
                         errors.getString("message"),
                         Toast.LENGTH_SHORT
                     ).show()
                 } catch (e: java.lang.Exception) {
-                    Toast.makeText(this@dokterHome, e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DokterHome, e.message, Toast.LENGTH_SHORT).show()
                 }
             }) {
             // Menambahkan header pada request

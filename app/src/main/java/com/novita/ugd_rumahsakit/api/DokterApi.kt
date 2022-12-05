@@ -2,7 +2,7 @@ package com.novita.ugd_rumahsakit.api
 
 class DokterApi {
     companion object {
-        val BASE_URL = "http://10.53.5.174/pbp/ci4-apiserver/public/"
+        val BASE_URL = "https://638d85594190defdb745cb46.mockapi.io/"
 
         val GET_ALL_URL = BASE_URL + "dokter/"
         val GET_BY_ID_URL = BASE_URL + "dokter/"

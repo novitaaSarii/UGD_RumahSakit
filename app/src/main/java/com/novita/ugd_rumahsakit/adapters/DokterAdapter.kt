@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.novita.ugd_rumahsakit.spesialisnamaDokter.Add_edit_Activity
 import com.novita.ugd_rumahsakit.R
-import com.novita.ugd_rumahsakit.spesialisnamaDokter.dokterHome
+import com.novita.ugd_rumahsakit.spesialisnamaDokter.DokterHome
 import com.novita.ugd_rumahsakit.models.dokter
 import java.util.*
 import kotlin.collections.ArrayList
@@ -58,7 +58,7 @@ class DokterAdapter (private var dokterList : List<dokter>, context: Context) :
                 .setMessage("apakah anda yakin ingin menghapus data mahasiswa ini?")
                 .setNegativeButton("Batal", null)
                 .setPositiveButton("Hapus") { _, _ ->
-                    if(context is dokterHome) dokter.id?.let { it1 ->
+                    if(context is DokterHome) dokter.id?.let { it1 ->
                         context.deleteDokter(
                             it1
                         )
@@ -69,8 +69,8 @@ class DokterAdapter (private var dokterList : List<dokter>, context: Context) :
         holder.cvdokter.setOnClickListener {
             val i = Intent(context, Add_edit_Activity::class.java)
             i.putExtra("id", dokter.id)
-            if(context is dokterHome)
-                context.startActivityForResult(i, dokterHome.LAUNCH_ADD_ACTIVITY)
+            if(context is DokterHome)
+                context.startActivityForResult(i, DokterHome.LAUNCH_ADD_ACTIVITY)
         }
     }
 
