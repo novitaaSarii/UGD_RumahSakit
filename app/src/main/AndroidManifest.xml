@@ -91,7 +91,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <service
             android:name=".Notification.MyFirebaseMessagingService"
@@ -105,7 +105,7 @@
 
         <activity
             android:name=".Tampilan"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
