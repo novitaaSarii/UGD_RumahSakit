@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     private val notificationId2 = 102
     private val notificationId3 = 103
     val GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL"
-    private var email = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+    private var Email = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     private var nomor= "^[+]?[0-9]{10,13}$"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,7 +103,9 @@ class MainActivity : AppCompatActivity() {
             if(email.isEmpty()){
                 etEmail.setError("email Tidak boleh kosong")
                 return@setOnClickListener
-            } else if(binding?.etEmail?.editText?.text.toString().matches(email.toRegex())){
+            }
+
+            else if(binding?.etEmail?.editText?.text.toString().matches(Email.toRegex())){
                 etEmail.setError("Format Email Harus sesuai")
                 return@setOnClickListener
             }
@@ -114,10 +116,12 @@ class MainActivity : AppCompatActivity() {
             if(nomorTelepon.isEmpty()){
                 etNomorTelepon.setError("Nomor Tidak boleh kosong")
                 return@setOnClickListener
-            }else if(binding?.etNomorTelepon?.editText?.text.toString().matches(nomor.toRegex())){
+            }
+            else if(binding?.etNomorTelepon?.editText?.text.toString().matches(nomor.toRegex())){
                 etNomorTelepon.setError("Harus 10-13 angka")
                 return@setOnClickListener
             }
+
 
 //            if(!register){
                 createregister()
